@@ -1,6 +1,20 @@
 import { X } from "lucide-react";
 
-export default function AgreementSelection({ setStep, onClose }) {
+export default function AgreementSelection({
+  setStep,
+  onClose,
+  agreementData,
+  setAgreementData,
+}) {
+  const handleSelectAgreement = () => {
+    setAgreementData({
+      ...agreementData,
+      agreementType: "Trucking Service Agreement",
+    });
+
+    setStep(2);
+  };
+
   return (
     <div className="flex items-center justify-center px-4 py-8 sm:px-6 md:px-8 min-h-[500px] bg-[#f7f8fa] rounded-2xl relative">
 
@@ -24,10 +38,10 @@ export default function AgreementSelection({ setStep, onClose }) {
           Please choose the type of agreement you want to proceed with.
         </p>
 
-        {/* Only One Option */}
+        {/* Agreement Button */}
         <div>
           <button
-            onClick={() => setStep(2)}
+            onClick={handleSelectAgreement}
             className="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm sm:text-base md:text-lg font-semibold py-5 rounded-2xl shadow-lg transition duration-300"
           >
             🚚 Trucking Service Agreement

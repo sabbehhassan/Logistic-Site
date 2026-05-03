@@ -1,27 +1,37 @@
 import DispatchStep from "./DispatchStep";
 import { Building2, Phone, Globe, Mail, Truck } from "lucide-react";
+
 const today = new Date().toLocaleDateString("en-CA");
 
 export default function TruckingAgreement({
   setStep,
-  selectedDispatch,
-  setSelectedDispatch,
+  agreementData,
+  setAgreementData,
 }) {
+  const handleDispatchChange = (value) => {
+    setAgreementData({
+      ...agreementData,
+      selectedDispatch: value,
+      agreementDate: today,
+    });
+  };
+
   return (
     <div className="flex items-center justify-center w-full px-4 py-4">
-      {/* Popup Container */}
       <div className="w-full max-w-5xl bg-white rounded-[32px] shadow-[0_20px_60px_rgba(0,0,0,0.15)] overflow-hidden">
-        {/* Scroll Area */}
+
         <div className="max-h-[88vh] overflow-y-auto">
-          {/* Top Banner */}
+
+          {/* Header */}
           <div className="bg-gradient-to-r from-[#02053D] to-[#0A1B7A] px-6 sm:px-10 py-8 text-white relative">
-            {/* Back Button */}
+
             <button
               onClick={() => setStep(1)}
               className="absolute left-6 top-6 flex items-center gap-2 text-white/90 hover:text-white transition text-sm sm:text-base font-medium"
             >
               ← Back
             </button>
+
             <div className="flex items-center gap-3 justify-center mb-3">
               <div className="bg-white/10 p-3 rounded-xl">
                 <Truck size={28} />
@@ -36,7 +46,6 @@ export default function TruckingAgreement({
               Dedicated Lanes, Dispatch, Trailer Rental & Setup Services
             </p>
 
-            {/* Progress */}
             <div className="mt-6">
               <div className="w-full h-2 bg-white/20 rounded-full overflow-hidden">
                 <div className="w-[25%] h-full bg-emerald-400 rounded-full"></div>
@@ -46,11 +55,14 @@ export default function TruckingAgreement({
 
           {/* Content */}
           <div className="px-6 sm:px-10 py-8">
-            {/* Agreement Intro */}
+
+            {/* Intro */}
             <div className="mb-8">
               <p className="text-gray-600 text-sm sm:text-base leading-7">
                 This agreement is made and entered into on{" "}
-                <span className="font-semibold text-[#02053D]">{today}</span>{" "}
+                <span className="font-semibold text-[#02053D]">
+                  {today}
+                </span>{" "}
                 between the client and the logistics company.
               </p>
             </div>
@@ -86,7 +98,9 @@ export default function TruckingAgreement({
 
                 <div className="flex items-start gap-3">
                   <Globe size={18} className="mt-1 text-[#02053D]" />
-                  <span className="text-blue-600">d1logisticsllc.com</span>
+                  <span className="text-blue-600">
+                    d1logisticsllc.com
+                  </span>
                 </div>
 
                 <div className="flex items-start gap-3">
@@ -96,17 +110,17 @@ export default function TruckingAgreement({
               </div>
             </div>
 
-            {/* Dispatch Section */}
-
+            {/* Dispatch */}
             <div className="bg-white border border-gray-200 rounded-3xl p-6 shadow-sm">
               <DispatchStep
-                selectedDispatch={selectedDispatch}
-                setSelectedDispatch={setSelectedDispatch}
+                selectedDispatch={agreementData.selectedDispatch}
+                setSelectedDispatch={handleDispatchChange}
               />
             </div>
 
-            {/* Footer Buttons */}
+            {/* Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 mt-10">
+
               <button
                 onClick={() => setStep(1)}
                 className="w-full sm:w-1/2 border border-gray-300 hover:bg-gray-100 text-gray-700 font-semibold py-3 rounded-2xl transition"
@@ -120,7 +134,9 @@ export default function TruckingAgreement({
               >
                 Next →
               </button>
+
             </div>
+
           </div>
         </div>
       </div>
