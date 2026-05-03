@@ -3,6 +3,7 @@ import {
   FaGlobeAmericas,
   FaUsers,
   FaKey,
+  FaArrowRight,
 } from "react-icons/fa";
 
 import jbHunt from "../../assets/images/jb-hunt.png";
@@ -37,84 +38,122 @@ const stats = [
   {
     icon: <FaKey />,
     title: "Support Availability",
-    value: "24h",
+    value: "24/7",
   },
 ];
 
 const Industries = () => {
   return (
-    <section className="bg-[#efefef] py-20">
+    <section className="bg-gradient-to-b from-[#f4f7fb] to-white py-24 overflow-hidden">
 
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-7xl mx-auto px-6">
 
-        {/* Heading */}
-        <div className="text-center">
+        {/* Top Section */}
+        <div className="grid lg:grid-cols-2 gap-14 items-center">
 
-          <h2 className="text-3xl md:text-4xl font-bold uppercase text-black">
-            Trusted By Industry Leaders
-          </h2>
+          {/* Left */}
+          <div>
 
-          <div className="mt-3">
-            <span className="relative inline-block text-[#0B7BEA] text-2xl md:text-3xl font-bold uppercase">
-              Our Partners
-              <span className="absolute left-0 -bottom-2 w-full h-[3px] bg-[#0B7BEA]"></span>
+            <span className="bg-[#0B7BEA]/10 text-[#0B7BEA] px-5 py-2 rounded-full text-sm font-semibold uppercase tracking-wide">
+              Trusted Network
             </span>
+
+            <h2 className="text-4xl md:text-5xl font-bold text-[#0B1C39] mt-6 leading-tight">
+              Building Strong Partnerships Across Logistics Industry
+            </h2>
+
+            <p className="text-gray-600 text-base leading-8 mt-6 max-w-xl">
+              We work alongside leading logistics brands and transportation
+              partners to ensure fast, secure, and scalable delivery solutions.
+            </p>
+
+            <button className="mt-8 bg-[#0B7BEA] hover:bg-[#0864bc] text-white px-7 py-3 rounded-xl text-sm font-medium transition flex items-center gap-3">
+              Explore Network
+              <FaArrowRight />
+            </button>
+
           </div>
 
-          <p className="text-gray-700 text-sm md:text-base mt-6 max-w-2xl mx-auto">
-            We collaborate with the best in the industry to deliver exceptional service.
-          </p>
+          {/* Right Logos */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
 
-        </div>
+            {partners.map((partner, index) => (
+              <div
+                key={index}
+                className="bg-white rounded-3xl shadow-md hover:shadow-xl transition duration-500 p-6 flex items-center justify-center group hover:-translate-y-2"
+              >
 
-        {/* Partner Logos */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-items-center mt-14">
+                <img
+                  src={partner.image}
+                  alt={partner.alt}
+                  className="h-[70px] object-contain grayscale group-hover:grayscale-0 transition duration-500"
+                />
 
-          {partners.map((partner, index) => (
-            <div
-              key={index}
-              className="flex justify-center items-center"
-            >
-              <img
-                src={partner.image}
-                alt={partner.alt}
-                className="max-h-[180px] object-contain hover:scale-105 transition duration-300"
-              />
-            </div>
-          ))}
-
-        </div>
-
-        {/* Stats Cards */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-20">
-
-          {stats.map((item, index) => (
-            <div
-              key={index}
-              className="bg-[#f7f7f7] rounded-xl border border-gray-300 py-8 px-6 text-center shadow-sm hover:shadow-md transition duration-300"
-            >
-
-              {/* Icon */}
-              <div className="w-[65px] h-[65px] mx-auto rounded-full bg-[#0B7BEA] flex items-center justify-center text-white text-2xl mb-6">
-                {item.icon}
               </div>
+            ))}
 
-              {/* Title */}
-              <h4 className="text-base font-medium text-black mb-3">
-                {item.title}
-              </h4>
+          </div>
 
-              {/* Value */}
-              <h3 className="text-3xl font-bold text-black">
-                {item.value}
-              </h3>
+        </div>
 
-            </div>
-          ))}
+        {/* Stats Section */}
+        <div className="mt-24">
+
+          <div className="text-center">
+
+            <span className="text-[#0B7BEA] uppercase tracking-wider font-semibold text-sm">
+              Performance Metrics
+            </span>
+
+            <h3 className="text-3xl md:text-4xl font-bold text-[#0B1C39] mt-4">
+              Trusted Results That Speak For Us
+            </h3>
+
+          </div>
+
+          {/* Cards */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+
+            {stats.map((item, index) => (
+              <div
+                key={index}
+                className="relative bg-white rounded-[30px] overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 group"
+              >
+
+                {/* Glow Effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-[#0B7BEA]/5 to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+
+                <div className="relative p-8 text-center">
+
+                  {/* Icon */}
+                  <div className="w-[75px] h-[75px] mx-auto rounded-2xl bg-[#0B7BEA] flex items-center justify-center text-white text-2xl shadow-lg group-hover:rotate-6 transition duration-500">
+                    {item.icon}
+                  </div>
+
+                  {/* Number */}
+                  <h3 className="text-4xl font-bold text-[#0B1C39] mt-6">
+                    {item.value}
+                  </h3>
+
+                  {/* Title */}
+                  <p className="text-gray-600 text-sm mt-3">
+                    {item.title}
+                  </p>
+
+                  {/* Hover Line */}
+                  <div className="w-0 h-[3px] bg-[#0B7BEA] mx-auto mt-5 group-hover:w-16 transition-all duration-500 rounded-full"></div>
+
+                </div>
+
+              </div>
+            ))}
+
+          </div>
 
         </div>
 
       </div>
+
     </section>
   );
 };
