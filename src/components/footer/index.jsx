@@ -1,105 +1,155 @@
 import logo from "../../assets/logo.png";
+import { Link } from "react-router-dom";
+import {
+  FaMapMarkerAlt,
+  FaEnvelope,
+  FaPhoneAlt,
+  FaArrowRight,
+} from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-white">
+    <footer className="relative bg-[#061425] text-white overflow-hidden">
 
-      {/* Main Footer */}
-      <div className="max-w-7xl mx-auto px-6 py-16">
+      {/* Background Effects */}
+      <div className="absolute top-0 left-0 w-[350px] h-[350px] bg-[#0B7BEA]/10 rounded-full blur-[120px]"></div>
+      <div className="absolute bottom-0 right-0 w-[350px] h-[350px] bg-[#0B7BEA]/10 rounded-full blur-[120px]"></div>
 
-        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-10">
+      {/* Top Border */}
+      <div className="h-[2px] bg-gradient-to-r from-transparent via-[#0B7BEA] to-transparent"></div>
 
-          {/* Logo + Description */}
-          <div>
+      {/* Footer Container */}
+      <div className="relative max-w-7xl mx-auto px-6 pt-14 pb-6">
+
+        {/* Grid */}
+        <div className="grid lg:grid-cols-4 md:grid-cols-2 gap-10 border-b border-white/10 pb-10 text-center md:text-left">
+
+          {/* Logo Section */}
+          <div className="flex flex-col items-center md:items-start md:-ml-4 -mt-4">
 
             <img
               src={logo}
-              alt="BNSF Logo"
-              className="w-44 mb-6"
+              alt="LOBLAW TRANSPORT US INC"
+              className="w-44 mb-4"
             />
 
-            <p className="text-sm leading-7 text-gray-300 max-w-62.5">
-              LOBLAW TRANSPORT US INC delivers dependable logistics solutions
-              that keep your freight safe, secure, and always on schedule.
+            <p className="text-gray-300 text-sm leading-7 max-w-[260px]">
+              LOBLAW TRANSPORT US INC delivers dependable logistics and freight
+              services designed to keep shipments moving efficiently, securely,
+              and always on schedule.
             </p>
 
           </div>
 
-          {/* Useful Links */}
-          <div>
+          {/* Quick Links */}
+          <div className="flex flex-col items-center md:items-start">
 
-            <h3 className="text-xl font-medium uppercase mb-6 tracking-wide">
-              Useful Links
+            <h3 className="text-xl font-semibold mb-8 relative inline-block">
+              Quick Links
+              <span className="absolute left-1/2 md:left-0 -translate-x-1/2 md:translate-x-0 -bottom-2 w-12 h-[2px] bg-[#0B7BEA] rounded-full"></span>
             </h3>
 
-            <ul className="space-y-3">
+            <ul className="space-y-4 text-gray-300">
 
-              <li className="text-sm text-gray-300 hover:text-[#0B7BEA] transition cursor-pointer">
-                Home
-              </li>
-
-              <li className="text-sm text-gray-300 hover:text-[#0B7BEA] transition cursor-pointer">
-                Shop
-              </li>
-
-              <li className="text-sm text-gray-300 hover:text-[#0B7BEA] transition cursor-pointer">
-                About Us
-              </li>
-
-              <li className="text-sm text-gray-300 hover:text-[#0B7BEA] transition cursor-pointer">
-                Contact Us
-              </li>
+              {[
+                { name: "Home", path: "/" },
+                { name: "Services", path: "/services" },
+                { name: "About Us", path: "/about" },
+                { name: "Contact Us", path: "/contact" },
+              ].map((item, index) => (
+                <li key={index}>
+                  <Link
+                    to={item.path}
+                    className="group flex items-center justify-center md:justify-start gap-3 hover:text-[#0B7BEA] transition duration-300"
+                  >
+                    <FaArrowRight className="text-[10px] group-hover:translate-x-1 transition duration-300" />
+                    {item.name}
+                  </Link>
+                </li>
+              ))}
 
             </ul>
 
           </div>
 
           {/* Services */}
-          <div>
+          <div className="flex flex-col items-center md:items-start">
 
-            <h3 className="text-xl font-medium uppercase mb-6 tracking-wide">
-              Our Services
+            <h3 className="text-xl font-semibold mb-8 relative inline-block">
+              Services
+              <span className="absolute left-1/2 md:left-0 -translate-x-1/2 md:translate-x-0 -bottom-2 w-12 h-[2px] bg-[#0B7BEA] rounded-full"></span>
             </h3>
 
-            <ul className="space-y-3">
+            <ul className="space-y-4 text-gray-300">
 
-              <li className="text-sm text-gray-300">
-                International Freight
-              </li>
-
-              <li className="text-sm text-gray-300">
-                Amazon Loads
-              </li>
-
-              <li className="text-sm text-gray-300">
-                Dedicated Loads
-              </li>
+              {[
+                "International Freight",
+                "Amazon Loads",
+                "Dedicated Loads",
+                "Truck Dispatching",
+              ].map((service, index) => (
+                <li
+                  key={index}
+                  className="hover:text-[#0B7BEA] transition duration-300 cursor-pointer"
+                >
+                  {service}
+                </li>
+              ))}
 
             </ul>
 
           </div>
 
-          {/* Contact */}
-          <div>
+          {/* Contact Section */}
+          <div className="flex flex-col items-center md:items-start">
 
-            <h3 className="text-xl font-medium uppercase mb-6 tracking-wide">
-              Contact Us
+            <h3 className="text-xl font-semibold mb-8 relative inline-block">
+              Contact Info
+              <span className="absolute left-1/2 md:left-0 -translate-x-1/2 md:translate-x-0 -bottom-2 w-12 h-[2px] bg-[#0B7BEA] rounded-full"></span>
             </h3>
 
-            <div className="space-y-3 text-sm text-gray-300 leading-7">
+            <div className="space-y-6 w-full">
 
-              <p>
-                320 N MERIDIAN ST. 3RD FLOOR SUITE 
-              </p>
+              {/* Address */}
+              <div className="flex items-start justify-center md:justify-start gap-4 text-center md:text-left">
 
-              <p>
-                INDIANAPOLIS, IN 46204
-              </p>
+                <div className="w-12 h-12 rounded-2xl bg-[#0B7BEA]/15 text-[#0B7BEA] flex items-center justify-center shrink-0">
+                  <FaMapMarkerAlt />
+                </div>
 
-              <p className="break-all">
-                info@loblawtransportusinc.com<br />
-                Alfred@loblawtransportusinc.com
-              </p>
+                <p className="text-gray-300 text-sm leading-7">
+                  320 N MERIDIAN ST. 3RD FLOOR SUITE INDIANAPOLIS, IN 46204
+                </p>
+
+              </div>
+
+              {/* Email */}
+              <div className="flex items-start justify-center md:justify-start gap-4 text-center md:text-left">
+
+                <div className="w-12 h-12 rounded-2xl bg-[#0B7BEA]/15 text-[#0B7BEA] flex items-center justify-center shrink-0">
+                  <FaEnvelope />
+                </div>
+
+                <p className="text-gray-300 text-sm leading-7 break-all">
+                  info@loblawtransportusinc.com
+                  <br />
+                  Alfred@loblawtransportusinc.com
+                </p>
+
+              </div>
+
+              {/* Phone */}
+              <div className="flex items-start justify-center md:justify-start gap-4 text-center md:text-left">
+
+                <div className="w-12 h-12 rounded-2xl bg-[#0B7BEA]/15 text-[#0B7BEA] flex items-center justify-center shrink-0">
+                  <FaPhoneAlt />
+                </div>
+
+                <p className="text-gray-300 text-sm">
+                  +1 (000) 000-0000
+                </p>
+
+              </div>
 
             </div>
 
@@ -107,15 +157,11 @@ const Footer = () => {
 
         </div>
 
-      </div>
-
-      {/* Bottom Footer */}
-      <div className="bg-[#111111] border-t border-gray-800">
-
-        <div className="max-w-7xl mx-auto px-6 py-5 text-center">
+        {/* Copyright */}
+        <div className="pt-8 text-center">
 
           <p className="text-sm text-gray-400">
-            Copyright © LOBLAW TRANSPORT US INC 2018. All Rights Reserved.
+            © 2018 LOBLAW TRANSPORT US INC. All Rights Reserved.
           </p>
 
         </div>

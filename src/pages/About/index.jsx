@@ -7,10 +7,14 @@ import {
   FaGlobe,
   FaWarehouse,
 } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 import heroBg from "../../assets/images/about-hero.jpg";
 import storyImg from "../../assets/images/about-story.jpg";
 import missionImg from "../../assets/images/about-mission.jpg";
+const navLinks = [
+    { name: "Contact", path: "/contact" },
+  ];
 
 const About = () => {
   return (
@@ -246,12 +250,8 @@ const About = () => {
           <div className="flex flex-wrap justify-center gap-4 mt-10">
 
             <button className="bg-white text-[#0B7BEA] px-7 py-3 rounded-xl font-medium hover:bg-gray-100 transition flex items-center gap-2">
+              <Link to="/contact" >Contact Us</Link>
               <FaArrowRight />
-              Contact Us
-            </button>
-
-            <button className="border border-white bg-red-600 px-7 py-3 rounded-xl hover:bg-white hover:text-[#0B7BEA] transition">
-              Learn More
             </button>
 
           </div>

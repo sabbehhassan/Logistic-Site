@@ -6,7 +6,7 @@ import NewCarrierPaymentStep from "./NewCarrierPaymentStep";
 import FinalSubmissionStep from "./FinalSubmissionStep";
 import AgreementSuccessStep from "./AgreementSuccessStep";
 
-export default function CarrierAgreementModal({ isOpen, onClose }) {
+export default function CarrierAgreementModal({setOpenAgreement, isOpen, onClose }) {
   const [step, setStep] = useState(1);
 
   // Main Shared Form State

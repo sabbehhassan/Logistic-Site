@@ -3,7 +3,6 @@ import {
   FaGlobeAmericas,
   FaUsers,
   FaKey,
-  FaArrowRight,
 } from "react-icons/fa";
 
 import jbHunt from "../../assets/images/jb-hunt.png";
@@ -16,7 +15,6 @@ const partners = [
   { image: oldDominion, alt: "Old Dominion" },
   { image: southernFreight, alt: "Southern Freight" },
   { image: fedex, alt: "FedEx" },
-  { image: jbHunt, alt: "JB Hunt" },
 ];
 
 const stats = [
@@ -44,51 +42,53 @@ const stats = [
 
 const Industries = () => {
   return (
-    <section className="bg-gradient-to-b from-[#f4f7fb] to-white py-24 overflow-hidden">
+    <section className="relative bg-[#f7f9fc] py-28 overflow-hidden">
 
-      <div className="max-w-7xl mx-auto px-6">
+      {/* Background Blur Effects */}
+      <div className="absolute top-0 left-0 w-[400px] h-[400px] bg-[#0B7BEA]/10 rounded-full blur-[120px]"></div>
+      <div className="absolute bottom-0 right-0 w-[350px] h-[350px] bg-[#0B7BEA]/10 rounded-full blur-[120px]"></div>
 
-        {/* Top Section */}
-        <div className="grid lg:grid-cols-2 gap-14 items-center">
+      <div className="relative max-w-7xl mx-auto px-6">
 
-          {/* Left */}
-          <div>
+        {/* Header */}
+        <div className="text-center max-w-4xl mx-auto">
 
-            <span className="bg-[#0B7BEA]/10 text-[#0B7BEA] px-5 py-2 rounded-full text-sm font-semibold uppercase tracking-wide">
-              Trusted Network
-            </span>
+          <span className="inline-block bg-[#0B7BEA]/10 text-[#0B7BEA] px-6 py-2 rounded-full text-sm font-semibold uppercase tracking-[2px]">
+            Trusted Logistics Network
+          </span>
 
-            <h2 className="text-4xl md:text-5xl font-bold text-[#0B1C39] mt-6 leading-tight">
-              Building Strong Partnerships Across Logistics Industry
-            </h2>
+          <h2 className="text-4xl md:text-6xl font-bold text-[#0B1C39] mt-6 leading-tight">
+            Connecting Industry Leaders Through Modern Logistics
+          </h2>
 
-            <p className="text-gray-600 text-base leading-8 mt-6 max-w-xl">
-              We work alongside leading logistics brands and transportation
-              partners to ensure fast, secure, and scalable delivery solutions.
-            </p>
+          <p className="text-gray-600 text-lg leading-8 mt-6 max-w-3xl mx-auto">
+            We collaborate with globally recognized freight companies and logistics
+            providers to ensure secure, scalable, and reliable transportation solutions.
+          </p>
 
-            <button className="mt-8 bg-[#0B7BEA] hover:bg-[#0864bc] text-white px-7 py-3 rounded-xl text-sm font-medium transition flex items-center gap-3">
-              Explore Network
-              <FaArrowRight />
-            </button>
+        </div>
 
-          </div>
+        {/* Moving Logos Section */}
+        <div className="mt-24 relative overflow-hidden">
 
-          {/* Right Logos */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
+          {/* Left Fade */}
+          <div className="absolute left-0 top-0 w-32 h-full bg-gradient-to-r from-[#f7f9fc] to-transparent z-10"></div>
 
-            {partners.map((partner, index) => (
+          {/* Right Fade */}
+          <div className="absolute right-0 top-0 w-32 h-full bg-gradient-to-l from-[#f7f9fc] to-transparent z-10"></div>
+
+          <div className="flex w-max animate-marquee gap-8">
+
+            {[...partners, ...partners, ...partners].map((partner, index) => (
               <div
                 key={index}
-                className="bg-white rounded-3xl shadow-md hover:shadow-xl transition duration-500 p-6 flex items-center justify-center group hover:-translate-y-2"
+                className="min-w-[230px] bg-white rounded-[30px] p-8 flex items-center justify-center border border-[#edf2f7] shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2"
               >
-
                 <img
                   src={partner.image}
                   alt={partner.alt}
-                  className="h-[70px] object-contain grayscale group-hover:grayscale-0 transition duration-500"
+                  className="h-[65px] object-contain"
                 />
-
               </div>
             ))}
 
@@ -97,53 +97,48 @@ const Industries = () => {
         </div>
 
         {/* Stats Section */}
-        <div className="mt-24">
+        <div className="mt-32">
 
-          <div className="text-center">
+          <div className="text-center mb-16">
 
-            <span className="text-[#0B7BEA] uppercase tracking-wider font-semibold text-sm">
+            <span className="text-[#0B7BEA] uppercase tracking-[3px] font-semibold text-sm">
               Performance Metrics
             </span>
 
-            <h3 className="text-3xl md:text-4xl font-bold text-[#0B1C39] mt-4">
+            <h3 className="text-3xl md:text-5xl font-bold text-[#0B1C39] mt-4">
               Trusted Results That Speak For Us
             </h3>
 
           </div>
 
-          {/* Cards */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
 
             {stats.map((item, index) => (
               <div
                 key={index}
-                className="relative bg-white rounded-[30px] overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 group"
+                className="group relative bg-white rounded-[35px] p-8 border border-[#edf2f7] overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-500"
               >
 
-                {/* Glow Effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-[#0B7BEA]/5 to-transparent opacity-0 group-hover:opacity-100 transition duration-500"></div>
+                {/* Top Accent Line */}
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#0B7BEA] to-[#49A6FF]"></div>
 
-                <div className="relative p-8 text-center">
+                {/* Glow */}
+                <div className="absolute -right-10 -bottom-10 w-32 h-32 bg-[#0B7BEA]/10 rounded-full blur-2xl opacity-0 group-hover:opacity-100 transition duration-500"></div>
 
-                  {/* Icon */}
-                  <div className="w-[75px] h-[75px] mx-auto rounded-2xl bg-[#0B7BEA] flex items-center justify-center text-white text-2xl shadow-lg group-hover:rotate-6 transition duration-500">
-                    {item.icon}
-                  </div>
-
-                  {/* Number */}
-                  <h3 className="text-4xl font-bold text-[#0B1C39] mt-6">
-                    {item.value}
-                  </h3>
-
-                  {/* Title */}
-                  <p className="text-gray-600 text-sm mt-3">
-                    {item.title}
-                  </p>
-
-                  {/* Hover Line */}
-                  <div className="w-0 h-[3px] bg-[#0B7BEA] mx-auto mt-5 group-hover:w-16 transition-all duration-500 rounded-full"></div>
-
+                {/* Icon */}
+                <div className="w-16 h-16 rounded-2xl bg-[#0B7BEA]/10 text-[#0B7BEA] flex items-center justify-center text-2xl group-hover:bg-[#0B7BEA] group-hover:text-white transition-all duration-500">
+                  {item.icon}
                 </div>
+
+                {/* Value */}
+                <h4 className="text-4xl font-bold text-[#0B1C39] mt-8">
+                  {item.value}
+                </h4>
+
+                {/* Title */}
+                <p className="text-gray-600 mt-3 text-sm leading-6">
+                  {item.title}
+                </p>
 
               </div>
             ))}
@@ -153,6 +148,22 @@ const Industries = () => {
         </div>
 
       </div>
+
+      {/* Marquee Animation */}
+      <style jsx>{`
+        @keyframes marquee {
+          0% {
+            transform: translateX(0%);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+
+        .animate-marquee {
+          animation: marquee 20s linear infinite;
+        }
+      `}</style>
 
     </section>
   );

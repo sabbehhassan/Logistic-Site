@@ -1,10 +1,7 @@
 import {
   FaTruckMoving,
-  FaShip,
   FaWarehouse,
-  FaPlaneDeparture,
   FaBoxes,
-  FaGlobe,
   FaArrowRight,
 } from "react-icons/fa";
 
@@ -20,16 +17,6 @@ const services = [
     desc: "Reliable trucking and road freight services with fast delivery schedules and secure cargo handling.",
   },
   {
-    icon: <FaShip />,
-    title: "Ocean Freight",
-    desc: "Global shipping solutions for heavy cargo, containers, and international freight movement.",
-  },
-  {
-    icon: <FaPlaneDeparture />,
-    title: "Air Freight",
-    desc: "Fast and efficient air cargo transportation for urgent shipments worldwide.",
-  },
-  {
     icon: <FaWarehouse />,
     title: "Warehousing",
     desc: "Secure storage facilities with inventory management and distribution support.",
@@ -39,20 +26,13 @@ const services = [
     title: "Packaging Solutions",
     desc: "Professional packaging services to ensure your products remain protected in transit.",
   },
-  {
-    icon: <FaGlobe />,
-    title: "Global Logistics",
-    desc: "International supply chain management for seamless logistics operations.",
-  },
 ];
 
 const Services = () => {
   return (
     <section className="bg-[#f3f4f6]">
-
       {/* Hero */}
       <div className="relative h-[420px]">
-
         <img
           src={heroBg}
           alt="Services Hero"
@@ -72,12 +52,10 @@ const Services = () => {
             </p>
           </div>
         </div>
-
       </div>
 
       {/* Intro */}
       <div className="max-w-6xl mx-auto px-6 py-20 text-center">
-
         <h2 className="text-3xl md:text-4xl font-bold text-black">
           Logistics Solutions Built For Modern Business
         </h2>
@@ -88,14 +66,11 @@ const Services = () => {
           We provide comprehensive transportation and logistics services with a
           strong focus on reliability, efficiency, and customer satisfaction.
         </p>
-
       </div>
 
       {/* Featured Service Layout */}
       <div className="max-w-6xl mx-auto px-6 pb-20">
-
         <div className="grid lg:grid-cols-2 gap-10 items-center bg-white rounded-3xl shadow-sm overflow-hidden">
-
           <div>
             <img
               src={serviceTruck}
@@ -105,7 +80,6 @@ const Services = () => {
           </div>
 
           <div className="p-10">
-
             <span className="text-[#0B7BEA] font-semibold uppercase tracking-wider text-sm">
               Featured Service
             </span>
@@ -116,12 +90,11 @@ const Services = () => {
 
             <p className="text-gray-700 leading-8 text-sm md:text-base mt-6">
               We specialize in efficient freight movement across local and
-              international markets. Our logistics network ensures fast,
-              secure, and cost-effective transportation.
+              international markets. Our logistics network ensures fast, secure,
+              and cost-effective transportation.
             </p>
 
             <div className="grid grid-cols-2 gap-4 mt-8">
-
               <div className="bg-[#f5f5f5] rounded-xl p-4 text-center">
                 <h3 className="text-2xl font-bold text-[#0B7BEA]">24/7</h3>
                 <p className="text-sm text-gray-600 mt-1">Support</p>
@@ -131,31 +104,24 @@ const Services = () => {
                 <h3 className="text-2xl font-bold text-[#0B7BEA]">120+</h3>
                 <p className="text-sm text-gray-600 mt-1">Countries</p>
               </div>
-
             </div>
 
             <button className="mt-8 bg-red-600 text-white px-7 py-3 rounded-xl text-sm hover:bg-[#0864bc] transition duration-300 flex items-center gap-2">
               Learn More
               <FaArrowRight />
             </button>
-
           </div>
-
         </div>
-
       </div>
 
       {/* Service Cards */}
       <div className="max-w-6xl mx-auto px-6 pb-24">
-
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-
           {services.map((service, index) => (
             <div
               key={index}
               className="group bg-white rounded-2xl p-8 shadow-sm border border-gray-200 hover:shadow-xl hover:-translate-y-2 transition duration-500"
             >
-
               <div className="w-[70px] h-[70px] rounded-2xl bg-[#0B7BEA] flex items-center justify-center text-white text-2xl group-hover:rotate-6 transition duration-500">
                 {service.icon}
               </div>
@@ -172,19 +138,14 @@ const Services = () => {
                 Explore Service
                 <FaArrowRight />
               </button>
-
             </div>
           ))}
-
         </div>
-
       </div>
 
       {/* Showcase */}
       <div className="max-w-6xl mx-auto px-6 pb-24">
-
         <div className="grid lg:grid-cols-2 gap-8">
-
           <div className="relative rounded-3xl overflow-hidden">
             <img
               src={serviceShip}
@@ -218,11 +179,8 @@ const Services = () => {
               </p>
             </div>
           </div>
-
         </div>
-
       </div>
-
     </section>
   );
 };

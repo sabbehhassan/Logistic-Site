@@ -1,6 +1,6 @@
 import heroBg from "../../assets/hero.png";
 
-const HeroSection = () => {
+const HeroSection = ({ setOpenAgreement }) => {
   return (
     <section className="relative w-full h-screen overflow-hidden">
 
@@ -13,7 +13,7 @@ const HeroSection = () => {
         />
       </div>
 
-      {/* Dark Overlay */}
+      {/* Overlay */}
       <div className="absolute inset-0 bg-black/55"></div>
 
       {/* Content */}
@@ -22,42 +22,36 @@ const HeroSection = () => {
 
           <div className="max-w-3xl">
 
-            {/* Small Label */}
             <span className="inline-block bg-red-600 text-white px-4 py-2 rounded-md text-sm font-semibold mb-6 tracking-wide uppercase">
               Trusted Logistics Company
             </span>
 
-            {/* Main Heading */}
             <h1 className="text-white text-5xl md:text-7xl font-bold leading-tight mb-6">
               Fast & Reliable <br />
               Logistics Services
             </h1>
 
-            {/* Description */}
             <p className="text-gray-200 text-lg leading-8 max-w-2xl mb-8">
               We deliver efficient transportation, warehousing, freight,
               and supply chain solutions across industries worldwide.
             </p>
 
-            {/* Buttons */}
-            <div className="flex flex-wrap gap-5">
+            {/* Same Agreement Open Button */}
+            <button
+              onClick={() => setOpenAgreement(true)}
+              className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-md font-semibold transition duration-300"
+            >
+              Get Started
+            </button>
 
-              <button className="bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-md font-semibold transition duration-300">
-                Get Started
-              </button>
-
-              <button className="border border-white text-white hover:bg-white hover:text-black px-8 py-4 rounded-md font-semibold transition duration-300">
-                Learn More
-              </button>
-
-            </div>
           </div>
 
         </div>
       </div>
 
       {/* Bottom Gradient */}
-      <div className="absolute bottom-0 left-0 w-full h-32 bg-linear-to-t from-white to-transparent"></div>
+      <div className="absolute bottom-0 left-0 w-full h-32 bg-gradient-to-t from-white to-transparent"></div>
+
     </section>
   );
 };

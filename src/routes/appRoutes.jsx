@@ -1,17 +1,24 @@
 import { createBrowserRouter } from "react-router-dom";
 import Layout from "../layout/Layout";
+import ScrollToTop from "../components/scrollToTop";
 import Home from "../pages/Home";
 import About from "../pages/About";
 import Contact from "../pages/Contact"; 
 import Services from "../pages/Services";
-import Aggrement from "../pages/Aggrement";
 
 
+// Wrap layout with ScrollToTop
+const withScrollToTop = (element) => (
+  <>
+    <ScrollToTop />
+    {element}
+  </>
+);
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
+    element: withScrollToTop(<Layout />),
     children: [
       {
         index: true,
@@ -28,10 +35,6 @@ const router = createBrowserRouter([
       {
         path: "services",
         element: <Services />,
-      },
-      {
-        path: "aggrement",
-        element: <Aggrement />,
       }
     ],
   },

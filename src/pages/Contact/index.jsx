@@ -69,12 +69,12 @@ const Contact = () => {
                 {
                   icon: <FaEnvelope />,
                   title: "Email",
-                  value: "info@bnsflogistics.services",
+                  value: "info@loblawtransportusinc.com",
                 },
                 {
                   icon: <FaMapMarkerAlt />,
                   title: "Location",
-                  value: "Houston, Texas, USA",
+                  value: "INDIANAPOLIS, IN 46204",
                 },
                 {
                   icon: <FaClock />,

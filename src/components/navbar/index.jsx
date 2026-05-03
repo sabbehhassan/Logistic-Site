@@ -1,13 +1,15 @@
 
 import { useState } from "react";
 import { HiOutlineMenuAlt3, HiX } from "react-icons/hi";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { FiPhoneCall, FiClock, FiMail } from "react-icons/fi";
 import logo from "../../assets/logo.png";
 import CarrierAgreementModal from "../CarrierAgreementModal";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [openAgreement, setOpenAgreement] = useState(false);
+  const location = useLocation();
 
   const navLinks = [
     { name: "Home", path: "/" },
@@ -20,60 +22,88 @@ const Navbar = () => {
   return (
     <>
       <header className="fixed top-0 left-0 w-full z-50">
+
         {/* Top Bar */}
-        <div className="bg-[#0B1C39] text-white hidden lg:block">
-          <div className="max-w-7xl mx-auto px-6 py-2 flex justify-between items-center text-xs">
-            <div className="flex gap-6">
-              <span>info@loblawtransportusinc.com<br />Alfred@loblawtransportusinc.com</span>
-              <span>Call: +92 300 0000000</span>
+        <div className="hidden lg:block bg-[#061425] border-b border-white/10 text-white">
+          <div className="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center text-sm">
+
+            <div className="flex items-center gap-8 text-gray-300">
+
+              <div className="flex items-center gap-2 hover:text-[#0B7BEA] transition">
+                <FiMail className="text-[#0B7BEA]" />
+                <span>info@loblawtransportusinc.com</span>
+              </div>
+
+              <div className="flex items-center gap-2 hover:text-[#0B7BEA] transition">
+                <FiPhoneCall className="text-[#0B7BEA]" />
+                <span>+92 300 0000000</span>
+              </div>
+
             </div>
 
-            <div>
+            <div className="flex items-center gap-2 text-gray-300">
+              <FiClock className="text-[#0B7BEA]" />
               <span>Mon - Sat: 9:00 AM - 6:00 PM</span>
             </div>
+
           </div>
         </div>
 
-        {/* Navbar */}
-        <nav className="bg-white shadow-md">
+        {/* Main Navbar */}
+        <nav className="bg-white/95 backdrop-blur-xl shadow-lg border-b border-gray-100">
           <div className="max-w-7xl mx-auto px-6">
-            <div className="flex justify-between items-center h-[75px]">
+
+            <div className="flex justify-between items-center h-[88px]">
+
               {/* Logo */}
               <Link to="/" className="flex items-center">
                 <img
                   src={logo}
-                  alt="Navbar Logo"
-                  className="w-40 h-30 object-contain"
+                  alt="LOBLAW TRANSPORT US INC"
+                  className="w-40 object-contain"
                 />
               </Link>
 
               {/* Desktop Menu */}
-              <ul className="hidden lg:flex items-center gap-8 text-sm font-semibold text-[#0B1C39]">
-                {navLinks.map((item, index) => (
-                  <li key={index}>
-                    <Link
-                      to={item.path}
-                      className="hover:text-red-600 transition duration-300"
-                    >
-                      {item.name}
-                    </Link>
-                  </li>
-                ))}
+              <ul className="hidden lg:flex items-center gap-3 bg-[#f5f8fc] p-2 rounded-full border border-gray-100 shadow-sm">
+
+                {navLinks.map((item, index) => {
+                  const isActive = location.pathname === item.path;
+
+                  return (
+                    <li key={index}>
+                      <Link
+                        to={item.path}
+                        className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 ${
+                          isActive
+                            ? "bg-[#0B7BEA] text-white shadow-md"
+                            : "text-[#0B1C39] hover:bg-[#0B7BEA]/10 hover:text-[#0B7BEA]"
+                        }`}
+                      >
+                        {item.name}
+                      </Link>
+                    </li>
+                  );
+                })}
+
               </ul>
 
-              {/* Desktop Agreement Button */}
+              {/* Desktop Button */}
               <div className="hidden lg:block">
                 <button
                   onClick={() => setOpenAgreement(true)}
-                  className="bg-red-600 hover:bg-red-700 text-white px-6 py-2.5 rounded-md transition duration-300 text-sm font-medium"
+                  className="bg-gradient-to-r from-[#0B7BEA] to-[#0863c0] hover:scale-105 text-white px-7 py-3 rounded-full text-sm font-semibold transition-all duration-300 shadow-lg hover:shadow-xl"
                 >
                   Carrier Setup | Agreement
                 </button>
               </div>
 
-              {/* Mobile Menu Toggle */}
+              {/* Mobile Toggle */}
               <div className="lg:hidden">
-                <button onClick={() => setMenuOpen(!menuOpen)}>
+                <button
+                  onClick={() => setMenuOpen(!menuOpen)}
+                  className="w-11 h-11 rounded-xl bg-[#f3f6fa] flex items-center justify-center shadow-sm"
+                >
                   {menuOpen ? (
                     <HiX className="text-3xl text-[#0B1C39]" />
                   ) : (
@@ -81,36 +111,45 @@ const Navbar = () => {
                   )}
                 </button>
               </div>
+
             </div>
           </div>
 
-          {/* Mobile Dropdown */}
+          {/* Mobile Menu */}
           {menuOpen && (
-            <div className="lg:hidden bg-white border-t shadow-md">
-              <ul className="flex flex-col px-6 py-5 gap-4 text-sm font-medium text-[#0B1C39]">
-                {navLinks.map((item, index) => (
-                  <li key={index}>
+            <div className="lg:hidden bg-white border-t shadow-xl animate-fadeDown">
+              <div className="px-6 py-6 space-y-4">
+
+                {navLinks.map((item, index) => {
+                  const isActive = location.pathname === item.path;
+
+                  return (
                     <Link
+                      key={index}
                       to={item.path}
-                      className="hover:text-red-600"
                       onClick={() => setMenuOpen(false)}
+                      className={`block px-5 py-3 rounded-2xl text-sm font-semibold transition duration-300 ${
+                        isActive
+                          ? "bg-[#0B7BEA] text-white"
+                          : "bg-[#f5f8fc] text-[#0B1C39] hover:bg-[#0B7BEA]/10"
+                      }`}
                     >
                       {item.name}
                     </Link>
-                  </li>
-                ))}
+                  );
+                })}
 
-                {/* Mobile Agreement Button */}
                 <button
                   onClick={() => {
                     setOpenAgreement(true);
                     setMenuOpen(false);
                   }}
-                  className="bg-red-600 text-white py-2.5 rounded-md mt-2 text-sm text-center"
+                  className="w-full bg-gradient-to-r from-[#0B7BEA] to-[#0863c0] text-white py-3 rounded-2xl font-semibold shadow-lg mt-4"
                 >
                   Carrier Setup | Agreement
                 </button>
-              </ul>
+
+              </div>
             </div>
           )}
         </nav>

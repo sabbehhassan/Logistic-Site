@@ -5,7 +5,7 @@ export default function CarrierInformationStep({
   agreementData,
   setAgreementData,
 }) {
-  const [errors, setErrors] = useState({});
+  const [, setErrors] = useState({});
 
   const services = [
     "Dedicated Lane Setup - $475 (Refundable after first delivery)",
