@@ -29,7 +29,7 @@ export default function AgreementSelection({
       <div className="w-full max-w-2xl text-center">
 
         {/* Title */}
-        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#02053D] mb-4">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#3d3d02] mb-4">
           Select an Agreement
         </h2>
 

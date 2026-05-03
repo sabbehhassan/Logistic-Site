@@ -64,7 +64,7 @@ export default function FinalSubmissionStep({
             "Content-Type": "application/json",
           },
           body: JSON.stringify(finalData),
-        }
+        },
       );
 
       const data = await response.json();
@@ -80,9 +80,7 @@ export default function FinalSubmissionStep({
   return (
     <div className="flex justify-center items-center w-full px-4 py-4">
       <div className="w-full max-w-5xl bg-white rounded-[30px] shadow-2xl overflow-hidden">
-
         <div className="max-h-[88vh] overflow-y-auto px-6 sm:px-10 py-8">
-
           <button
             onClick={() => setStep(4)}
             className="text-blue-600 text-sm font-medium mb-6 hover:underline"
@@ -95,9 +93,7 @@ export default function FinalSubmissionStep({
               Trucking Service Agreement
             </h1>
 
-            <p className="text-gray-500 mt-2">
-              Final Agreement Submission
-            </p>
+            <p className="text-gray-500 mt-2">Final Agreement Submission</p>
           </div>
 
           <div className="w-full h-2 bg-gray-200 rounded-full mb-10">
@@ -109,114 +105,146 @@ export default function FinalSubmissionStep({
           </h2>
 
           <div className="space-y-5">
-
             {/* Signature */}
-            <input
-              type="text"
-              placeholder="Signature"
-              value={agreementData.signature || ""}
-              onChange={(e) =>
-                setAgreementData({
-                  ...agreementData,
-                  signature: e.target.value,
-                })
-              }
-              className="w-full border rounded-xl px-5 py-4"
-            />
+            <div>
+              <label className="block mb-2 font-medium text-gray-700">
+                Signature
+              </label>
+              <input
+                type="text"
+                placeholder="Signature"
+                value={agreementData.signature || ""}
+                onChange={(e) =>
+                  setAgreementData({
+                    ...agreementData,
+                    signature: e.target.value,
+                  })
+                }
+                className="w-full border rounded-xl px-5 py-4"
+              />
+            </div>
 
             {/* Print Name */}
-            <input
-              type="text"
-              placeholder="Print Name"
-              value={agreementData.printName || ""}
-              onChange={(e) =>
-                setAgreementData({
-                  ...agreementData,
-                  printName: e.target.value,
-                })
-              }
-              className="w-full border rounded-xl px-5 py-4"
-            />
+            <div>
+              <label className="block mb-2 font-medium text-gray-700">
+                Print Name
+              </label>
+              <input
+                type="text"
+                placeholder="Print Name"
+                value={agreementData.printName || ""}
+                onChange={(e) =>
+                  setAgreementData({
+                    ...agreementData,
+                    printName: e.target.value,
+                  })
+                }
+                className="w-full border rounded-xl px-5 py-4"
+              />
+            </div>
 
             {/* Email */}
-            <input
-              type="email"
-              placeholder="Email"
-              value={agreementData.email || ""}
-              onChange={(e) =>
-                setAgreementData({
-                  ...agreementData,
-                  email: e.target.value,
-                })
-              }
-              className="w-full border rounded-xl px-5 py-4"
-            />
+            <div>
+              <label className="block mb-2 font-medium text-gray-700">
+                Email
+              </label>
+              <input
+                type="email"
+                placeholder="Email"
+                value={agreementData.email || ""}
+                onChange={(e) =>
+                  setAgreementData({
+                    ...agreementData,
+                    email: e.target.value,
+                  })
+                }
+                className="w-full border rounded-xl px-5 py-4"
+              />
+            </div>
 
             {/* Payment */}
-            <div className="space-y-3">
-              {["factoring", "ach", "cod"].map((method) => (
-                <label key={method} className="flex items-center gap-3">
-                  <input
-                    type="radio"
-                    checked={agreementData.paymentMethod === method}
-                    onChange={() =>
-                      setAgreementData({
-                        ...agreementData,
-                        paymentMethod: method,
-                      })
-                    }
-                  />
+            <div>
+              <label className="block mb-2 font-medium text-gray-700">
+                Payment Method
+              </label>
 
-                  <span>{method}</span>
-                </label>
-              ))}
+              <div className="space-y-3">
+                {["Factoring", "ACH Direct Deposit Method", "Cash On Delivery"].map((method) => (
+                  <label key={method} className="flex items-center gap-3">
+                    <input
+                      type="radio"
+                      checked={agreementData.paymentMethod === method}
+                      onChange={() =>
+                        setAgreementData({
+                          ...agreementData,
+                          paymentMethod: method,
+                        })
+                      }
+                    />
+                    <span>{method}</span>
+                  </label>
+                ))}
+              </div>
             </div>
 
             {/* Bank */}
-            <input
-              type="text"
-              placeholder="Bank Name"
-              value={agreementData.bankName || ""}
-              onChange={(e) =>
-                setAgreementData({
-                  ...agreementData,
-                  bankName: e.target.value,
-                })
-              }
-              className="w-full border rounded-xl px-5 py-4"
-            />
+            <div>
+              <label className="block mb-2 font-medium text-gray-700">
+                Bank Name
+              </label>
+              <input
+                type="text"
+                placeholder="Bank Name"
+                value={agreementData.bankName || ""}
+                onChange={(e) =>
+                  setAgreementData({
+                    ...agreementData,
+                    bankName: e.target.value,
+                  })
+                }
+                className="w-full border rounded-xl px-5 py-4"
+              />
+            </div>
 
-            <input
-              type="text"
-              placeholder="Account Number"
-              value={agreementData.accountNumber || ""}
-              onChange={(e) =>
-                setAgreementData({
-                  ...agreementData,
-                  accountNumber: e.target.value,
-                })
-              }
-              className="w-full border rounded-xl px-5 py-4"
-            />
+            <div>
+              <label className="block mb-2 font-medium text-gray-700">
+                Account Number
+              </label>
+              <input
+                type="text"
+                placeholder="Account Number"
+                value={agreementData.accountNumber || ""}
+                onChange={(e) =>
+                  setAgreementData({
+                    ...agreementData,
+                    accountNumber: e.target.value,
+                  })
+                }
+                className="w-full border rounded-xl px-5 py-4"
+              />
+            </div>
 
-            <input
-              type="text"
-              placeholder="Routing Number"
-              value={agreementData.routingNumber || ""}
-              onChange={(e) =>
-                setAgreementData({
-                  ...agreementData,
-                  routingNumber: e.target.value,
-                })
-              }
-              className="w-full border rounded-xl px-5 py-4"
-            />
-
+            <div>
+              <label className="block mb-2 font-medium text-gray-700">
+                Routing Number
+              </label>
+              <input
+                type="text"
+                placeholder="Routing Number"
+                value={agreementData.routingNumber || ""}
+                onChange={(e) =>
+                  setAgreementData({
+                    ...agreementData,
+                    routingNumber: e.target.value,
+                  })
+                }
+                className="w-full border rounded-xl px-5 py-4"
+              />
+            </div>
           </div>
 
           {/* Footer */}
           <div className="flex flex-col sm:flex-row gap-4 mt-10">
-
             <button
               onClick={() => setStep(4)}
               className="w-full sm:w-1/2 bg-gray-200 py-4 rounded-2xl"
@@ -230,7 +258,6 @@ export default function FinalSubmissionStep({
             >
               Submit Agreement
             </button>
-
           </div>
         </div>
       </div>

@@ -76,7 +76,7 @@ export default function TruckingAgreement({
 
                 <div>
                   <h3 className="text-xl font-bold text-[#02053D]">
-                    D1 Logistics LLC
+                    LOBLAW TRANSPORT US INC
                   </h3>
 
                   <p className="text-sm text-gray-500">
@@ -88,7 +88,7 @@ export default function TruckingAgreement({
               <div className="grid sm:grid-cols-2 gap-4 text-sm sm:text-base text-gray-600">
                 <div className="flex items-start gap-3">
                   <Building2 size={18} className="mt-1 text-[#02053D]" />
-                  <span>10629 PORTAGE RD PORTAGE, MI 49002</span>
+                  <span>320 N MERIDIAN ST. 3RD FLOOR SUITE 309 INDIANAPOLIS, IN 46204</span>
                 </div>
 
                 <div className="flex items-start gap-3">
@@ -99,13 +99,13 @@ export default function TruckingAgreement({
                 <div className="flex items-start gap-3">
                   <Globe size={18} className="mt-1 text-[#02053D]" />
                   <span className="text-blue-600">
-                    d1logisticsllc.com
+                    loblawtransportusinc.com
                   </span>
                 </div>
 
                 <div className="flex items-start gap-3">
                   <Mail size={18} className="mt-1 text-[#02053D]" />
-                  <span>Michael@d1logisticsllc.com</span>
+                  <span>info@loblawtransportusinc.com</span>
                 </div>
               </div>
             </div>

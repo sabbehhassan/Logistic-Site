@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { HiOutlineMenuAlt3, HiX } from "react-icons/hi";
 import { Link } from "react-router-dom";
-import logo from "../../assets/navbar logo.png";
+import logo from "../../assets/logo.png";
 import CarrierAgreementModal from "../CarrierAgreementModal";
 
 const Navbar = () => {
@@ -24,7 +24,7 @@ const Navbar = () => {
         <div className="bg-[#0B1C39] text-white hidden lg:block">
           <div className="max-w-7xl mx-auto px-6 py-2 flex justify-between items-center text-xs">
             <div className="flex gap-6">
-              <span>Email: info@logistics.com</span>
+              <span>info@loblawtransportusinc.com<br />Alfred@loblawtransportusinc.com</span>
               <span>Call: +92 300 0000000</span>
             </div>
 
@@ -43,7 +43,7 @@ const Navbar = () => {
                 <img
                   src={logo}
                   alt="Navbar Logo"
-                  className="w-40 object-contain"
+                  className="w-40 h-30 object-contain"
                 />
               </Link>
 

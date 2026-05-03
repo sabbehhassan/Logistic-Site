@@ -19,7 +19,7 @@ const Footer = () => {
             />
 
             <p className="text-sm leading-7 text-gray-300 max-w-62.5">
-              BNSF Logistics Services delivers dependable logistics solutions
+              LOBLAW TRANSPORT US INC delivers dependable logistics solutions
               that keep your freight safe, secure, and always on schedule.
             </p>
 
@@ -75,10 +75,6 @@ const Footer = () => {
                 Dedicated Loads
               </li>
 
-              <li className="text-sm text-gray-300">
-                Expedited Shipping
-              </li>
-
             </ul>
 
           </div>
@@ -93,15 +89,16 @@ const Footer = () => {
             <div className="space-y-3 text-sm text-gray-300 leading-7">
 
               <p>
-                545 Plaza Verde DR Suite 100,
+                320 N MERIDIAN ST. 3RD FLOOR SUITE 
               </p>
 
               <p>
-                Houston, TX 77038
+                INDIANAPOLIS, IN 46204
               </p>
 
               <p className="break-all">
-                info@bnsflogistics.services
+                info@loblawtransportusinc.com<br />
+                Alfred@loblawtransportusinc.com
               </p>
 
             </div>
@@ -118,7 +115,7 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-6 py-5 text-center">
 
           <p className="text-sm text-gray-400">
-            Copyright © BNSF Logistics Services 2018. All Rights Reserved.
+            Copyright © LOBLAW TRANSPORT US INC 2018. All Rights Reserved.
           </p>
 
         </div>
