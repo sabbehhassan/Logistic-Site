@@ -1,7 +1,14 @@
 import { useState } from "react";
 
-export default function NewCarrierPaymentStep({ setStep }) {
-  const [paymentMethod, setPaymentMethod] = useState("");
+export default function NewCarrierPaymentStep({
+  setStep,
+  agreementData,
+  setAgreementData,
+}) {
+  const [paymentTermsMethod, setPaymentTermsMethod] = useState(
+    agreementData.paymentTermsMethod || ""
+  );
+
   const [error, setError] = useState("");
 
   const paymentOptions = [
@@ -12,12 +19,19 @@ export default function NewCarrierPaymentStep({ setStep }) {
   ];
 
   const handleNext = () => {
-    if (!paymentMethod) {
+    if (!paymentTermsMethod) {
       setError("Please select a payment option");
       return;
     }
 
     setError("");
+
+    // ✅ ensure data is saved before moving next
+    setAgreementData({
+  ...agreementData,
+  paymentTermsMethod: paymentTermsMethod, // ✅ changed
+});
+
     setStep(5);
   };
 
@@ -71,7 +85,7 @@ export default function NewCarrierPaymentStep({ setStep }) {
                 <label
                   key={index}
                   className={`flex items-center gap-4 cursor-pointer border rounded-2xl p-4 transition ${
-                    paymentMethod === option
+                    paymentTermsMethod === option
                       ? "border-emerald-500 bg-emerald-50"
                       : "border-gray-200 hover:bg-gray-50"
                   }`}
@@ -80,9 +94,18 @@ export default function NewCarrierPaymentStep({ setStep }) {
                     type="radio"
                     name="payment"
                     value={option}
-                    checked={paymentMethod === option}
+                    checked={paymentTermsMethod === option}
                     onChange={(e) => {
-                      setPaymentMethod(e.target.value);
+                      const value = e.target.value;
+
+                      setPaymentTermsMethod(value);
+
+                      // ✅ SAVE TO GLOBAL STATE
+                      setAgreementData({
+                        ...agreementData,
+                        paymentTermsMethod: value,
+                      });
+
                       setError("");
                     }}
                     className="w-5 h-5 accent-emerald-500"
@@ -115,7 +138,7 @@ export default function NewCarrierPaymentStep({ setStep }) {
             </h2>
 
             <p className="text-gray-600 leading-8">
-              The $475 dedicated lane setup fee is refundable after the client
+              The $485 dedicated lane setup fee is refundable after the client
               completes their first delivery arranged by the company.
             </p>
           </div>
